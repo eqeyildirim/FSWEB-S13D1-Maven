@@ -14,11 +14,16 @@ public class Main {
     }
 
     public static boolean shouldWakeUp(boolean isBarking, int clock) {
-        if (clock<0 || clock>23 || !isBarking){
+        if (clock < 0 || clock > 23 || !isBarking) {
             return false;
         }
-        return clock >= 23 || clock > 8;
+        return clock >= 23 || clock <= 7; // Saat 23 ve sonrası, ya da saat 7 ve öncesi (8 dahil değil)
     }
+
+
+
+
+
 
     public static boolean hasTeen(int firstAge, int secondAge, int thirdAge) {
         if (((firstAge >= 13) && (firstAge <= 19)) ||
@@ -35,12 +40,9 @@ public class Main {
         int lowestTemp = 25;
         int highestTemp = isSummer ? 45 : 35;
 
-        if (temp < highestTemp && temp > lowestTemp) {
-            return true;
-        }
-
-        return false; // Burada temp koşulunu sağlamadığı durumda false döndürülür
+        return temp >= lowestTemp && temp <= highestTemp;
     }
+
 
 
     public static double area(double width, double height) {
